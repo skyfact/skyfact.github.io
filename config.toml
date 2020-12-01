@@ -24,6 +24,8 @@ subtitle = "skyfact"
 
 disableDarkMode=true
 
+favicon="/favicon.ico"
+
 # Twitter Card and Open Graph settings
 enableOpenGraph = true
 enableTwitterCards = true
