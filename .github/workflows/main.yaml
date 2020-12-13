@@ -1,0 +1,28 @@
+name: automate generate task
+
+on: 
+  push:
+    branches:
+    - src
+
+jobs:
+  build:
+    name: build static pages
+    runs-on: archlinux-latest
+
+    steps:
+      - usse: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: install hugo-extended
+        run: | 
+          pacman -Syu --needed --noconfirm hugo
+      - name: generate and release
+        run: |
+          git clone -b main https://github.com/skyfact/skyfact.github.io public
+          hugo
+          cd public
+          git commit -m "rebuilding site on $(date) (auto gen)"
+          git push origin main
+        with:
+          repo-token: ${{ secrets.github_token }}
