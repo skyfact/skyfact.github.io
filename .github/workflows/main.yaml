@@ -11,7 +11,7 @@ jobs:
     runs-on: archlinux-latest
 
     steps:
-      - use: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           submodules: recursive
       - name: install hugo-extended
