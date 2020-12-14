@@ -10,6 +10,9 @@ jobs:
     name: build static pages
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
       - name: build
         uses: ./.github/actions/build
         with:
