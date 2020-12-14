@@ -1,5 +1,29 @@
 name: 'auto build'
 description: 'generate static pages and release'
+author: skyfact
+inputs:
+  token:
+    description: github authority
+    required: true
+  customized_actor:
+    description: repository ownership
+    required: false
+  source_branch:
+    description: branch to pull hugo source
+    required: false
+  release_branch:
+    description: branch to release changes
+    required: false
+  git_actor_email:
+    description: email for git commit
+    required: false
+  git_actor_name:
+    description: name for git commit
+    required: false
+  commit_format_string:
+    description: commit message
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'

@@ -12,4 +12,6 @@ jobs:
     steps:
       - name: build
         uses: ./.github/actions/build
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
