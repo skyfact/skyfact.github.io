@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 ## necessary environment variables:
 ##   ::ITEM::                      ::DESCRIPTION::                  ::DEFAULT::
@@ -27,7 +27,7 @@ git config --local user.name ${git_actor_name}
 
 
 # clone source
-git clone -b --recursive ${source_branch} ${remote_repo} sources
+git clone --recursive -b ${source_branch} ${remote_repo} sources
 git clone -b ${release_branch} ${remote_repo} sources/public
 
 
