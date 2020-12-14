@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: build static pages
-    runs-on: archlinux-latest
+    runs-on: archlinux-lastest
 
     steps:
       - uses: actions/checkout@v2
@@ -16,13 +16,22 @@ jobs:
           submodules: recursive
       - name: install hugo-extended
         run: | 
-          pacman -Syu --needed --noconfirm hugo
-      - name: generate and release
+          pacman -Syu --needed --noconfirm hugo git
+      - name: generate
         run: |
           git clone -b main https://github.com/skyfact/skyfact.github.io public
           hugo
+      - name: release
+        run: |
+          git config --local user.email "skylineartifact@gmail.com"
+          git config --local user.name "skyfact"
           cd public
+          git add .
           git commit -m "rebuilding site on $(date) (auto gen)"
-          git push origin main
+      - name: GitHub Push
+        uses: ad-m/github-push-action@v0.6.0
         with:
           repo-token: ${{ secrets.github_token }}
+          branch: main
+          force: true
+
