@@ -2,7 +2,7 @@ name: 'auto build'
 description: 'generate static pages and release'
 author: skyfact
 inputs:
-  token:
+  github_token:
     description: github authority
     required: true
   customized_actor:

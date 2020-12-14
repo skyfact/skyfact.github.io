@@ -4,7 +4,7 @@ set -e
 ## necessary environment variables:
 ##   ::ITEM::                      ::DESCRIPTION::                  ::DEFAULT::
 ##   customized_actor              repository ownership             "${GITHUB_ACTOR}"
-##   token                         github authority                 --  REQUIRED  --
+##   github_token                  github authority                 --  REQUIRED  --
 ##   source_branch                 branch to pull hugo source       "src"
 ##   release_branch                branch to release changes        "main"
 ##   git_actor_email               email for git commit             "${customized_actor}@users.noreply.github.com"
@@ -15,13 +15,13 @@ set -e
 # setup
 base_dir=$(pwd)
 customized_actor=${INPUT_CUSTOMIZED_ACTOR:-$GITHUB_ACTOR}
-token=${GITHUB_TOKEN}
+github_token=${INPUT_GITHUB_TOKEN}
 source_branch=${INPUT_SOURCE_BRANCH:-'src'}
 release_branch=${INPUT_RELEASE_BRANCH:-'main'}
 git_actor_email=${INPUT_GIT_ACTOR_EMAIL:-"${customized_actor}@users.noreply.github.com"}
 git_actor_name=${INPUT_GIT_ACTOR_NAME:-"${customized_actor}"}
 commit_format_string=${INPUT_COMMIT_FORMAT_STRING:-"rebuilding site on $(date) -- auto gen"}
-remote_repo="https://${customized_actor}:${token}@github.com/${customized_actor}.github.io.git"
+remote_repo="https://${customized_actor}:${github_token}@github.com/${customized_actor}.github.io.git"
 git config --local user.email ${git_actor_email}
 git config --local user.name ${git_actor_name}
 
