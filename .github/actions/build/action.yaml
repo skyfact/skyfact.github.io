@@ -1,0 +1,5 @@
+name: 'auto build'
+description: 'generate static pages and release'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
