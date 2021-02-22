@@ -39,7 +39,7 @@ hugo
 # commit changes
 cd ${base_dir}/sources/public
 git add .
-git commit -m ${commit_format_string}
+git commit -m "${commit_format_string}"
 
 
 # release changes
