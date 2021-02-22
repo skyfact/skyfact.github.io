@@ -43,4 +43,4 @@ git commit -m ${commit_format_string}
 
 
 # release changes
-git push ${remote_repo} HEAD:${release_branch}
+git push "${remote_repo}" HEAD:${release_branch}
