@@ -32,7 +32,7 @@ git clone -b ${release_branch} ${remote_repo} sources/public
 
 
 # generate static pages
-cd base_dir/sources
+cd ${base_dir}/sources
 hugo
 
 
