@@ -37,7 +37,7 @@ hugo
 
 
 # commit changes
-cd base_dir/sources/public
+cd ${base_dir}/sources/public
 git add .
 git commit -m ${commit_format_string}
 
