@@ -22,8 +22,8 @@ git_actor_email=${INPUT_GIT_ACTOR_EMAIL:-"${customized_actor}@users.noreply.gith
 git_actor_name=${INPUT_GIT_ACTOR_NAME:-"${customized_actor}"}
 commit_format_string=${INPUT_COMMIT_FORMAT_STRING:-"rebuilding site on $(date) -- auto gen"}
 remote_repo="https://${customized_actor}:${github_token}@github.com/${customized_actor}/${customized_actor}.github.io.git"
-git config --local user.email ${git_actor_email}
-git config --local user.name ${git_actor_name}
+git config --global user.email ${git_actor_email}
+git config --global user.name ${git_actor_name}
 
 
 # clone source
